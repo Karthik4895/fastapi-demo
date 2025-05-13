@@ -2,6 +2,8 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from typing import List
 
+"test"
+
 app = FastAPI(title="FastAPI Demo",
               description="A demo FastAPI app for deployment",
               version="1.0.0")

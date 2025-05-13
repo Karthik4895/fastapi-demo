@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fastapi-demo
+  labels:
+    app: fastapi-demo
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: fastapi-demo
+  template:
+    metadata:
+      labels:
+        app: fastapi-demo
+    spec:
+      containers:
+      - name: fastapi-demo
+        image: yourdockerhubusername/fastapi-demo:latest
+        ports:
+        - containerPort: 8000
+        env:
+        - name: APP_ENV
+          value: "production"
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "128Mi"
+          limits:
+            cpu: "500m"
+            memory: "512Mi"
